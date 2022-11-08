@@ -19,6 +19,18 @@ type Props = {
 }
 
 export default function Post({ post, morePosts, preview }: Props) {
+  const imageUrl =
+    process.env.NEXT_PUBLIC_BASE_URL +
+    '/api/og?' +
+    'title=' +
+    encodeURIComponent(post.title) +
+    '&author=' +
+    encodeURIComponent(post.author.name) +
+    '&date=' +
+    encodeURIComponent(post.date) +
+    '&cover=' +
+    encodeURIComponent(post.ogImage.url)
+
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -36,7 +48,8 @@ export default function Post({ post, morePosts, preview }: Props) {
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
-                <meta property="og:image" content={post.ogImage.url} />
+                <meta property="og:image" content={imageUrl} />
+                <meta name="twitter:image" content={imageUrl} />
               </Head>
               <PostHeader
                 title={post.title}

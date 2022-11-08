@@ -1,3 +1,7 @@
+> This is the example app associated with the video [Create OG images for your Next.js application](https://youtu.be/CZRlC3nXeyg)
+
+---
+
 # A statically generated blog example using Next.js, Markdown, and TypeScript
 
 This is the existing [blog-starter](https://github.com/vercel/next.js/tree/canary/examples/blog-starter) plus TypeScript.
